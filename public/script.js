@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:5000/api";
+const API_URL = "https://habit-tracker-s8j1.onrender.com/api";  
 
 // 🔹 Функция загрузки привычек
 async function loadHabits() {
