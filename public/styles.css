@@ -1,0 +1,148 @@
+/* Общие стили */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    width: 90%;
+    max-width: 800px;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Заголовки */
+h1, h2 {
+    text-align: center;
+    color: #4a90e2;
+}
+
+/* Форма добавления привычки */
+.habit-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+    background: #eef5ff;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+/* Кнопки */
+.btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4a90e2;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background-color: #357abd;
+}
+
+.add-btn {
+    background-color: #5cb85c;
+}
+
+.add-btn:hover {
+    background-color: #4cae4c;
+}
+
+.logout-btn {
+    background-color: #d9534f;
+}
+
+.logout-btn:hover {
+    background-color: #c9302c;
+}
+
+/* Список привычек */
+.habit-list {
+    margin-top: 20px;
+}
+
+.habit-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #f9f9f9;
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.habit-text {
+    font-weight: bold;
+}
+
+.week-status input {
+    margin: 0 3px;
+}
+
+/* Кнопки редактирования и удаления */
+.habit-actions button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+/* Статистика */
+.habit-stats {
+    margin-top: 30px;
+    padding: 20px;
+    background: #eef5ff;
+    border-radius: 8px;
+}
+
+canvas {
+    width: 100% !important;
+    height: auto !important;
+}
+
+/* Админ кнопка */
+.admin-btn {
+    background-color: #ff9800;
+    margin-top: 15px;
+}
+
+.admin-btn:hover {
+    background-color: #e68900;
+}
+.profile-section {
+    margin-top: 20px;
+    padding: 15px;
+    background: #eef5ff;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.profile-section input {
+    display: block;
+    width: 80%;
+    margin: 10px auto;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.profile-section button {
+    width: 50%;
+    margin-top: 10px;
+}

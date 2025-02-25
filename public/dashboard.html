@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Трекер привычек</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📅 Трекер привычек</h1>
+            <button class="btn logout-btn" onclick="logout()">🚪 Выйти</button>
+        </header>
+
+        <section class="habit-form">
+            <h2>➕ Добавить привычку</h2>
+            <input type="text" id="habit-name" placeholder="Название привычки">
+            <input type="text" id="habit-desc" placeholder="Описание">
+            <button class="btn add-btn" onclick="createHabit()">Добавить</button>
+        </section>
+
+        <section class="habit-list">
+            <h2>📌 Мои привычки</h2>
+            <ul id="habit-list"></ul>
+        </section>
+
+        <template id="habit-template">
+            <li class="habit-item">
+                <span class="habit-text"></span>
+                <div class="week-status">
+                    <input type="checkbox" class="day" data-day="0">
+                    <input type="checkbox" class="day" data-day="1">
+                    <input type="checkbox" class="day" data-day="2">
+                    <input type="checkbox" class="day" data-day="3">
+                    <input type="checkbox" class="day" data-day="4">
+                    <input type="checkbox" class="day" data-day="5">
+                    <input type="checkbox" class="day" data-day="6">
+                </div>
+                <div class="habit-actions">
+                    <button class="edit-btn">✏️</button>
+                    <button class="delete-btn">🗑️</button>
+                </div>
+            </li>
+        </template>
+
+        <section class="habit-stats">
+            <h2>📊 Статистика</h2>
+            <canvas id="habitChart"></canvas>
+        </section>
+        <section class="profile-section">
+            <h2>📝 Редактировать профиль</h2>
+            <input type="text" id="new-username" placeholder="Новый username">
+            <input type="email" id="new-email" placeholder="Новый email">
+            <button class="btn" onclick="updateProfile()">💾 Сохранить изменения</button>
+        </section>
+        
+        <button id="admin-btn" class="btn admin-btn" onclick="goToAdminPanel()" style="display: none;">⚙️ Админ панель</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

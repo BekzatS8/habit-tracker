@@ -1,6 +1,6 @@
 const express = require("express");
 const Habit = require("../models/Habit");
-const authMiddleware = require("../middleware/auth");
+const { authMiddleware } = require("../middleware/auth"); // ✅ Убедись, что импорт верный
 
 const router = express.Router();
 
@@ -8,7 +8,7 @@ const router = express.Router();
 router.post("/", authMiddleware, async (req, res) => {
   try {
     const { name, description } = req.body;
-    const newHabit = new Habit({ user: req.user.id, name, description });
+    const newHabit = new Habit({ user: req.user.id, name, description, weeklyStatus: [false, false, false, false, false, false, false] });
     await newHabit.save();
     res.status(201).json(newHabit);
   } catch (error) {
@@ -29,16 +29,19 @@ router.get("/", authMiddleware, async (req, res) => {
 // ✅ 3. Обновление привычки по ID
 router.put("/:id", authMiddleware, async (req, res) => {
   try {
-    const { name, description, weeklyStatus } = req.body;
+    const { name, description, weeklyStatusIndex, status } = req.body;
     const habit = await Habit.findById(req.params.id);
 
     if (!habit || habit.user.toString() !== req.user.id) {
       return res.status(404).json({ message: "Привычка не найдена" });
     }
 
-    habit.name = name || habit.name;
-    habit.description = description || habit.description;
-    if (weeklyStatus) habit.weeklyStatus = weeklyStatus;
+    if (weeklyStatusIndex !== undefined && status !== undefined) {
+      habit.weeklyStatus[weeklyStatusIndex] = status;
+    } else {
+      habit.name = name || habit.name;
+      habit.description = description || habit.description;
+    }
 
     await habit.save();
     res.json(habit);
